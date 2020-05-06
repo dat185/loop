@@ -1,0 +1,31 @@
+{
+  "name": "loopgo",
+  "version": "1.0.0",
+  "description": "Basic asynchronous loop for objects in Javascript that can return an accumulated object and modify it.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dat185/loop.git"
+  },
+  "keywords": [
+    "loop",
+    "iterate",
+    "array",
+    "object"
+  ],
+  "author": "Davis Arosemena T.",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dat185/loop/issues"
+  },
+  "publishConfig": { 
+    "registry": "https://npm.pkg.github.com/" 
+  },
+  "homepage": "https://github.com/dat185/loop#readme",
+  "devDependencies": {
+    "tap": "^14.10.7"
+  }
+}
