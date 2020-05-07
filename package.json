@@ -20,7 +20,6 @@
     "iterator",
     "simple"
   ],
-  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
   "author": "Davis Arosemena T.",
   "license": "MIT",
   "bugs": {
