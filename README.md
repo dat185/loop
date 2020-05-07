@@ -6,6 +6,7 @@ Basic asynchronous loop for an Array [] or Object {} that can return an accumula
 
 ```javascript
 const loop = require('loop-go');
+
 const result = await loop(["1", "3"], ({ item }, next) => {
     next({ number: item });
 });
@@ -18,6 +19,7 @@ console.log(result);
 
 ```javascript
 const loop = require('loop-go');
+
 loop(["1", "3"], ({ item }, next) => {
     next({ number: item });
 }).then((result) => {
