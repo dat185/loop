@@ -49,8 +49,8 @@ loop(array, handleFun, true);
 loop(array, ({ item, key, object }, next, reject) => next(item), true);
 ```
 1. The first is a Json object with three variables: "item", "key", "object". "object" will be the accumulated object that is building in each iteration.
-2. The second is the function next to continue with the next iteration.
-3. The third can be used to finish the process by some controlled error.
+2. The second is the function next to continue with the next iteration. This should be called alway into handleFun.
+3. The third can be used to finish the process by some controlled error or someone else error.
 
 ## Usage
 
@@ -60,6 +60,7 @@ const loop = require('loop-go');
 // Iteration without return
 await loop(["1", "3"], ({ item }, next) => {
     // Do something like make a external request or another promise process.
+    console.log(item);
     next();
 });
 console.log("Finish");
