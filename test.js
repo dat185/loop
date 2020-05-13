@@ -59,3 +59,27 @@ tap.test('Just iteration', async t => {
     });
     t.end();
 });
+
+tap.test('{ number1: [], number2: "2", number3: {} } return same object using deep loop', async t => {
+    const result = await loop({ number1: [], number2: "2", number3: {} }, ({ item, key }, next) => {
+        if (typeof key === "number" || !key) next(item);
+        next({ [key]: item });
+    }, true);
+    t.match(result, { number1: [], number2: "2", number3: {} }, 'same result')
+});
+
+tap.test('{ number1: [{},[],{ deep: 1 }], number2: { deep: [1,2,3, { deep: "1"}]}, number3: [{}] } return same object using deep loop', async t => {
+    const result = await loop({ number1: [{},[],{ deep: 1 }], number2: { deep: [1,2,3, { deep: "1"}]}, number3: [{}] }, ({ item, key }, next) => {
+        if (typeof key === "number" || !key) next(item);
+        next({ [key]: item });
+    }, false);
+    t.match(result, { number1: [{},[],{ deep: 1 }], number2: { deep: [1,2,3, { deep: "1"}]}, number3: [{}] }, 'same result')
+});
+
+tap.test('[{"$match":{"$and":[{"title":"/man/i"},{},{}]}}] return same object using deep loop', async t => {
+    const result = await loop([{"$match":{"$and":[{"title":"/man/i"},{},{}]}}], ({ item, key }, next) => {
+        if (typeof key === "number" || !key) next(item);
+        next({ [key]: item });
+    }, true);
+    t.match(result, [{"$match":{"$and":[{"title":"/man/i"},{},{}]}}], 'same result')
+});
