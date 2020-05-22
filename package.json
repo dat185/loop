@@ -1,7 +1,7 @@
 {
   "name": "loop-go",
   "version": "2.0.0",
-  "description": "Basic asynchronous loop for an Array [] or Object {} that can return an accumulated object and modify it.",
+  "description": "Basic asynchronous loop for an Array [] or Object {} that can return an accumulated object and modify it. Also, this has option to deep loop for complex Object.",
   "main": "index.js",
   "scripts": {
     "test": "node test.js"
@@ -18,7 +18,9 @@
     "async",
     "queue",
     "iterator",
-    "simple"
+    "simple",
+    "deep",
+    "deep loop"
   ],
   "author": "Davis Arosemena T.",
   "license": "MIT",

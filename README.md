@@ -1,6 +1,6 @@
 # Loop Go
 
-Basic asynchronous loop for an Array [] or Object {} that can return an accumulated object and modify it.
+Basic asynchronous loop for an Array [] or Object {} that can return an accumulated object and modify it. Also, this has option to deep loop for complex Object.
 
 ### Async/Await Style
 
@@ -43,11 +43,11 @@ loop(array, handleFun, true, true);
 1. The first is an Array [] or Json {} object.
 2. The second is a function that is called each iteration.
 3. The third is optional. This is for if you want a deep loop. By default is "false".
-4. The fourth is optional too. This indicates the return will be an Array [] or Object {}. By default is "false" = It will return an Array [];
+4. The fourth is optional too. This indicates the return will be an Array [] or Object {}. If it is not specified, the return will be an Array [] if the enter is an Array [] and Object {}, if the enter is an Object {}.
 
 ### Iteration function parameters:
 ```javascript
-loop(array, ({ item, key, object }, next, reject) => next(item), true);
+loop(array, ({ item, key, object }, next, reject) => next(item), true, true);
 ```
 1. The first is a Json object with three variables: "item", "key", "object". "object" will be the accumulated object that is building in each iteration.
 2. The second is the function next to continue with the next iteration. This should be called alway into handleFun.

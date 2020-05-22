@@ -59,6 +59,9 @@ const loop = (array, body, deepLoop = false, returnObject) => new Promise(async 
         }
     });
 
+    if (Array.isArray(array)) {
+        if (array.length === 0) resolveMain([]);
+    } else if (Object.keys(array).length === 0) resolveMain({});
     const result = await loopWork(false, array, deepLoop, returnObject);
     resolveMain(result);
 });
