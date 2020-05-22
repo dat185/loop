@@ -59,11 +59,16 @@ const loop = (array, body, deepLoop = false, returnObject) => new Promise(async 
         }
     });
 
+    const init = async () => {
+        const result = await loopWork(false, array, deepLoop, returnObject);
+        resolveMain(result);
+    }
+
     if (Array.isArray(array)) {
         if (array.length === 0) resolveMain([]);
+        else init();
     } else if (Object.keys(array).length === 0) resolveMain({});
-    const result = await loopWork(false, array, deepLoop, returnObject);
-    resolveMain(result);
+    else init();
 });
 
 module.exports = loop
