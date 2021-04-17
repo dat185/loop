@@ -47,7 +47,7 @@ const loop = (array, body, deepLoop = false, returnObject) => new Promise(async 
                 } else if (!returnObjectFinal) resolve(resultArray);
                 else resolve(resultObject);
             } catch (err) {
-                console.error(err);
+                resolve(err);
             }
         });
         if (Array.isArray(arrayParam)) {
